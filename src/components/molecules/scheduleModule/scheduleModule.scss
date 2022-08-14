@@ -1,0 +1,65 @@
+.ScheduleModule{
+  $red:#FF3535;
+  width: 628px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 45px;
+  margin-top: 55px;
+  &:first-child{
+    margin-left: 0;
+  }
+  &__moduleNumber{
+    font-size: 32px;
+    font-family: "Styrene A Web Regular", Arial;
+    font-weight: 400;
+    padding-top: 30px;
+    border-top: 2px solid $red;
+  }
+  &-content{
+    margin-top: 30px;
+    &__item{
+      margin-top: 10px;
+      max-width: 353px;
+      &::marker{
+        color: $red;
+        width: 5px;
+        height: 5px;
+      }
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+  }
+  @media (min-width: 320px) and (max-width: 500px){
+    margin-top: 10px;
+    display: block;
+    margin-left: 0;
+    width: auto;
+    &:first-child{
+      margin-top: 27px;
+    }
+    &__moduleNumber{
+      padding: 15px 24px 15px 24px;
+      background-color: #F7F7F7;
+      border-top: 0px;
+      &:before{
+        margin-right: 30px;
+        content: url("./imgs/icon.png");
+        color: #D9D9D9;
+        width: 15px;
+        height: 15px;
+      }
+      &_active{
+        background-color: $red;
+        color: white;
+        &:before{
+          content: "—";
+          font-size: 25px;
+        }
+      }
+    }
+    &-content{
+      margin-left: 20px;
+    }
+  }
+}

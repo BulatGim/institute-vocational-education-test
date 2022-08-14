@@ -1,0 +1,30 @@
+.App{
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Styrene A Web Light";
+    font-weight: 300;
+  }
+  h1{
+    font-size: 36px;
+    font-family: "Styrene A Web Bold", Arial;
+    font-weight: 700;
+  }
+  h2{
+    font-size: 26px;
+    font-family: "Styrene A Web Bold", Arial;
+    font-weight: 700;
+  }
+  p{
+    font-size: 20px;
+  }
+  @media (min-width: 320px) and (max-width: 500px){
+    h1{
+      font-size: 28px;
+    }
+    h2{
+      font-size: 22px;
+    }
+  }
+}

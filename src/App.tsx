@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState, useContext} from 'react';
+import './App.scss';
+import axios from "axios";
+import SpecializedDisciplines from "./components/pages/specializedDisciplines/specializedDisciplines";
+import {Context} from "./index";
+import {observer} from "mobx-react-lite";
+import {IGlobalDiscipline} from "./types/disciplines/globalDiscipline";
 
-function App() {
+interface IServerResponse {
+    data:IGlobalDiscipline[]
+}
+
+
+const App = observer(()=>{
+
+    let context = useContext(Context)
+
+    useEffect(()=>{
+        new Promise<IServerResponse>((resolve, reject)=>{
+            let data = axios.get("https://api-moscow-mba.herokuapp.com/products")
+            context?.disciplines.setLoading(true)
+            resolve(data)
+            reject(new Error())
+        }).then((data)=> {
+            context?.disciplines.setDisciplines(data.data.filter((item:any)=>item.subjectsStickerType==="practiceModulesAndFinalAttestation"))
+        }).catch(()=>{
+            alert("Произошла ошибка, попробуйте позже")
+        }).finally(()=>context?.disciplines.setLoading(false))
+    }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <SpecializedDisciplines/>
     </div>
   );
-}
+})
 
 export default App;

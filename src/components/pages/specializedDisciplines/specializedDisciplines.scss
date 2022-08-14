@@ -1,0 +1,46 @@
+.SpecializedDisciplines{
+  max-width: 1280px;
+  margin: 72px auto 171px auto;
+  &__preloader{
+    margin: 70px auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #FF3535; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  &__title{
+    text-align: center;
+  }
+  &-sticks{
+    margin-top: 150px;
+    display: flex;
+    &__title{
+      color: white;
+    }
+    &__content{
+      color: white;
+      margin-top: 20px;
+    }
+    &__listItem{
+      font-size: 20px;
+      margin-left: 25px;
+      &::marker{
+        color: #FF3535;
+      }
+    }
+  }
+  @media (min-width: 320px) and (max-width: 500px){
+    max-width: 345px;
+    margin: 28px auto 50px auto;
+    &-sticks{
+      display: block;
+      margin-top: 44px;
+    }
+  }
+}

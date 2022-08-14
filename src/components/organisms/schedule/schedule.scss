@@ -1,0 +1,26 @@
+.Schedule{
+  margin-top: 72px;
+  &:first-child{
+    margin-top: 90px;
+  }
+  &__title{
+
+  }
+  &-content{
+    &__modules{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 500px){
+    margin-top: 35px;
+    &:first-child{
+      margin-top: 35px;
+    }
+    &-content{
+      &__modules{
+        display: block;
+      }
+    }
+  }
+}
